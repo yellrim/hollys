@@ -11,385 +11,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!--load all styles -->
     <!-- bx slider -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.css" integrity="sha512-rV4fiystTwIvs71MLqeLbKbzosmgDS7VU5Xqk1IwFitAM+Aa9x/8Xil4CW+9DjOvVle2iqg4Ncagsbgu2MWxKQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js" integrity="sha512-p55Bpm5gf7tvTsmkwyszUe4oVMwxJMoff7Jq3J/oHaBk+tNQvDKNz9/gLxn9vyCjgd6SAoqLnL13fnuZzCYAUA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <title>할리스</title>
-    <style>
-        /* 기본 스타일 */
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-        .clearfix::after{
-           content: '';
-           display: block;
-           clear: both;
-        }
-        :root {
-            font-family: 'Roboto', 'Noto Sans KR', 'sans-serif';
-            font-weight: 400;
-            font-size: 14px;
-            color: #666666;
-        }
-        .sec{
-            margin-bottom: 36px;
-        }
-        .container{
-            width: 960px;
-            margin: 0 auto;
-            padding: 12px;
-        }
-        .grid-container{
-            display: grid;
-            grid-template-columns: repeat(12,1fr);
-            column-gap: 12px;
-            row-gap: 24px;
-        }
-        .hidden-tit{
-            width: 0;
-            height: 0;
-            overflow: hidden;
-        }
-
-
-        /* 스킵메뉴 */
-        .skip-menu a{
-            display: block;
-            width: 0;
-            height: 0;
-            /* padding: 12px; */
-            background-color: #666666;
-            font-weight: 900;
-            font-size: 32px;
-            color: #fff;
-            text-align: center;
-            overflow: hidden;
-        }
-        .skip-menu a:focus{
-            width: auto;
-            height: auto;
-            padding: 12px;
-        }
-
-        /* wapper style */
-        .wrap{
-            overflow: hidden;
-        }
-
-        /* header style */
-        .header{
-            border-bottom: 2px solid #ba000c;
-        }
-        .header .container{
-            padding-bottom: 0;
-        }
-        h1 {
-            order: 2;
-            grid-column: 5/9;
-            display: flex;
-            justify-content: center;
-        }
-        h1 strong{
-            display: block;
-            width: 0;
-            height: 0;
-            overflow: hidden;
-        }
-        h1 .img-box{
-            width: 66px;
-        }
-        .quick-nav01{
-            order:1;
-            grid-column: 1/5;
-        }
-        .quick-nav01 ul{
-            height: 100%;
-            display: flex;
-        }
-        .quick-nav01 li{
-            margin-right: 1em;
-        }
-        .quick-nav01 a{
-            font-weight: 700;
-            font-size: 14px;
-            color: black;
-        }
-        .quick-nav01 li:first-child a, .quick-nav01 a:hover{
-            color: #ba000c;
-        }
-        .quick-nav02{
-            order:3;
-            grid-column: 9/14;
-        }
-        .quick-nav02 ul{
-            display: flex;
-        }
-        .quick-nav02 li{
-            margin-left: 1em;
-            font-size: 12px;
-        }
-        .quick-nav02 li:nth-child(4) a{
-            margin-top: 20px;
-        }
-        .main-nav{
-            order:4;
-            grid-column: 1/13;
-        }
-        .main-nav ul{
-            display: grid;
-            grid-template-columns: repeat(6,1fr);
-        }
-        .main-nav a{
-            padding: 12px 12px 6px 12px;
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: center;
-            align-items: center;         
-            transition: 0.3s;   
-        }
-        .main-nav a span:first-child{
-            font-weight: 700;
-            font-size: 20px;
-            color: #333;
-            transition: 0.3s 0.1s; 
-        }
-        .main-nav a span:last-child{
-            font-size: 12px;
-            color: transparent;
-            opacity: 0;
-            transition: 0.3s 0.15;
-        }
-        .main-nav a:hover{
-            background-color: #ba000c;
-        }
-        .main-nav a:hover span{
-            color: white;
-            opacity: 1;
-        }
-        
-        /* slider style */
-        .main-slider .container{
-            width: 100%;
-            padding: 0;
-        }
-    
-        .bx-wrapper{
-            margin: 0;
-            border: none;
-        }
-        .bx-wrapper .bx-pager{
-            bottom: 30px;
-        }
-        .bx-wrapper .bx-pager.bx-default-pager a{
-            background-color: white;
-        }
-        .bx-wrapper .bx-pager.bx-default-pager a.active,
-        .bx-wrapper .bx-pager.bx-default-pager a:hover{
-            background-color: #ba000c;
-        }
-
-        /* fran-mall-sto */
-        .fran-mall-sto .grid-container{
-            grid-template-columns: 1fr 2fr 1fr;
-        }
-        .fran-mall-sto h3{
-            font-weight: 700;
-            font-size:24px;
-            color: #333;
-        }
-        .mall h3{
-            margin-bottom: 12px;
-            color: #ba000c;
-        }
-        .mall ul{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-        .mall>p{
-            font-weight: 500;
-            font-size: 15px;
-            text-indent: 26px;
-        }
-        .mall a{
-            display: block;
-            height: 214px;
-            position: relative;
-        }
-        .mall a .img-box{
-            border-right: 1px dotted #e0e0e0;
-            position: absolute;
-            left: 10%;
-            right: 10%;
-            top: 50%;
-            transform: translateY(-66%);          
-        }
-        .mall li:last-child a .img-box{
-            border: none;
-        }
-        .mall a p{
-            position: absolute;
-            left:0;
-            right: 0;
-            bottom: 15%;
-            text-align: center;
-        }
-        .mall a:hover p{
-            color: #ba000c;
-        }
-
-        /* banner */
-        .banner .img-box:first-child{
-            grid-column: 1/7;
-        }
-        .banner .img-box:last-child{
-            grid-column: 7/13;
-        }
-
-
-        /* notice */
-        .notice .grid-container{
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-        }
-        .notice h3{
-            margin-bottom: 10px;
-            font-weight: 500;
-            font-size: 18px;
-        }
-        .notice .art>p{
-            margin-bottom: 8px;
-        }
-        .news a:first-child{
-            float: left;
-            width: 165px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .news a:last-child{
-            float: right;
-        }
-
-        .quick-icons li{
-            float: left;
-            width: 33.3333333333%;
-        }
-        .quick-icons a{
-            display: grid;
-            /* grid-template-columns: 1fr; */
-            grid-template-rows: 40px auto;
-            justify-items: center;
-        }
-        .quick-icons a .img-box{
-            width: 50%;
-        }
-        .quick-icons a p{
-            font-size: 12px;
-            text-align: center;
-        }
-        .quick-icons .circle,
-        .quick-icons .bubble{
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: #8b9091;
-            text-indent: -99999px;
-            position: relative;
-        }
-        .quick-icons .circle::before,
-        .quick-icons .circle::after{
-            position: absolute;
-
-            content: '';
-            display: block;
-            width: 4px;
-            border-radius: 2px;
-            background-color: #fff;
-        }
-        .quick-icons .circle::before{
-            height: 15px;
-            left: calc(50% - 2px);
-            bottom: 50%;
-        }
-        .quick-icons .circle::after{
-            height: 18px;
-            left: calc(50% - 2px);
-            transform-origin:center top;
-            transform: rotate(-45deg);
-        }
-        .quick-icons .bubble{
-            height: 70%;
-        }
-        .quick-icons .bubble::after{
-            position:absolute;
-            left: 9%;
-            bottom: -23px;
-            transform: rotate(14deg);
-
-            content: '';
-            display: block;
-            width: 20px;
-            height: 30px;
-            border-top: 15px solid #8b9091;
-            border-bottom: 15px solid transparent;
-            border-left: 10px solid transparent;
-            border-right: 15px solid transparent;
-        }
-
-        /* line */
-        .line .contents{
-            height: 2px;
-            background-color: #ba000c;
-            text-indent: -999999px;
-        }
-
-        /* live */
-        .live h2{
-            font-weight: 700;
-            font-size:24px;
-            color: #333;
-
-            grid-column: 1/3;
-        }
-        .live ul{
-            grid-column: 3/13;
-        }
-        .live li{
-            float: left;
-            margin-right: 6px;
-            font-size: 30px;
-            color: #999; 
-        }
-        .live li:hover{
-            color: black;
-        }
-
-        /* footer */
-        .footer{
-            background-color: #ba000c;
-        }
-        .footer .container{
-            padding: 36px 12px;
-
-        }
-        .footer-nav ul{
-            display: flex;
-        }
-        .footer-nav li{
-            border-right: 1px solid #999;
-            padding: 0 10px;
-            color: white;
-        }
-        .footer-nav li:first-child{
-            padding-left: 0;
-        }
-        .footer-nav li:last-child{
-            border-right: none;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
+
 <body>
         <!-- 스킵 메뉴 -->
         <div class="skip-menu">
-            <a href="#franchise">프랜차이즈 바로가기</a>
-            <a href="#membership">할리스 멤버십 바로가기</a>
+            <a href="#fran">프랜차이즈 바로가기</a>
+            <a href="#memb">할리스 멤버십 바로가기</a>
             <a href="#live">할리스 라이브 바로가기</a>
         </div>
 
@@ -482,7 +114,7 @@
                 </div>
             </section>
             <!-- fran-mall-sto -->
-            <section class="sec fran-mall-sto">
+            <section class="sec fran-mall-sto" id="fran">
                 <h2 class="sec-tit hidden-tit">
                     프랜차이즈,쇼핑몰,지점찾기
                 </h2>
@@ -538,7 +170,7 @@
                 </div>
             </section>
             <!-- banner -->
-            <section class="sec banner">
+            <section class="sec banner" id="memb">
                 <h2 class="sec-tit hidden-tit">멥버십 / 카드 바로가기</h2>
                 <div class="container">
                     <contents class="grid-container">
@@ -624,7 +256,7 @@
                 </div>
             </section>
             <!-- hollys live -->
-            <section class="sec live">
+            <section class="sec live" id="live">
                 <div class="container">
                     <div class="contents grid-container">
                         <h2 class="sec-tit">HOLLYS Live</h2>
@@ -654,6 +286,7 @@
                             </ul>
                         </nav>
                         <address>
+                            <br>
                             법인명: (주) 케이지할리스에프앤비 대표자: 이종현 사업자등록번호 211-87-61044 통신판매업: 제2019-서울종로-0193호
                             <br>
                             주소 : 서울특별시 종로구 율곡로 88 삼환빌딩 8층 (운니동) 대표전화 : 02-2188-7100 (가맹문의 : 02-6350-7229)
@@ -666,16 +299,9 @@
         </section>
 
 
-      <script>
-        $(document).ready(function(){
-          $('.slider').bxSlider({
-            mode: 'fade',
-            speed: 1000,
-            auto: true,
-            pause: 2000,
-            controls: false,
-          });
-        });
-      </script>
+        <!-- script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js" integrity="sha512-p55Bpm5gf7tvTsmkwyszUe4oVMwxJMoff7Jq3J/oHaBk+tNQvDKNz9/gLxn9vyCjgd6SAoqLnL13fnuZzCYAUA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="./js/main-slider.js"></script>
 </body>
 </html>
